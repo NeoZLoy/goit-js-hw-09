@@ -1,27 +1,11 @@
-import dataValueValidation from './02-data-value-validation';
-import {
-  printTimeComponents,
-  timeDifference,
-} from './02-print-time-components';
+import flatpickr from 'flatpickr';
+import 'flatpickr/dist/flatpickr.min.css';
+import { flatpickrOptions } from './02-flatpickr-options';
 
 const startBtn = document.querySelector('button[data-start]');
-const dateInput = document.querySelector('#datetime-picker');
 
-const currentDate = new Date();
-let inputedDate = null;
-
-dateInput.type = 'datetime-local';
-dateInput.value = currentDate.toISOString().slice(0, -8);
+flatpickr('#datetime-picker', flatpickrOptions);
 
 startBtn.disabled = true;
 
-dateInput.addEventListener('blur', event => {
-  inputedDate = event.target.valueAsNumber;
-  dataValueValidation();
-});
-
-startBtn.addEventListener('click', event => {
-  const timerInterval = setInterval(printTimeComponents, 1000);
-});
-
-export { inputedDate, startBtn };
+export { startBtn };
