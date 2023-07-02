@@ -1,8 +1,17 @@
-export default function getTimeComponents(time) {
-  const days = time > 0 ? Math.floor(time / 1000 / 60 / 60 / 24) : 0;
-  const hours = time > 0 ? Math.floor(time / 1000 / 60 / 60) % 24 : 0;
-  const minutes = time > 0 ? Math.floor(time / 1000 / 60) % 60 : 0;
-  const seconds = time > 0 ? Math.floor(time / 1000) % 60 : 0;
-
-  return { days, hours, minutes, seconds };
-}
+export default function getTimeComponents(ms) {
+    const second = 1000;
+    const minute = second * 60;
+    const hour = minute * 60;
+    const day = hour * 24;
+  
+    // Remaining days
+    const days = Math.floor(ms / day);
+    // Remaining hours
+    const hours = Math.floor((ms % day) / hour);
+    // Remaining minutes
+    const minutes = Math.floor(((ms % day) % hour) / minute);
+    // Remaining seconds
+    const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+  
+    return { days, hours, minutes, seconds };
+  }
