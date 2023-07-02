@@ -19,5 +19,6 @@ export default function printTimeComponents() {
   
       if(timeDifference <1000){
           clearInterval(timerId)
+          Notiflix.Notify.success("It's your time now!");
       }
     }
