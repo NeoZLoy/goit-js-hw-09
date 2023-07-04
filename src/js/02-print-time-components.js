@@ -1,6 +1,7 @@
 import { inputedDate, timerId } from "./02-timer";
 import addLeadingZero from './02-add-leading-zero';
 import getTimeComponents from './02-get-time-components';
+import Notiflix from "notiflix";
 
 let timeDifference = 0;
 const daysOutput = document.querySelector('span[data-days]');
@@ -17,8 +18,9 @@ export default function printTimeComponents() {
       minutesOutput.textContent = addLeadingZero(minutes);
       secondsOutput.textContent = addLeadingZero(seconds);
   
-      if(timeDifference <1000){
+      if(days === 0 && hours === 0 && minutes === 0 && seconds === 0){
+        Notiflix.Notify.success('Its your time now!');
           clearInterval(timerId)
-          Notiflix.Notify.success("It's your time now!");
+          
       }
     }
