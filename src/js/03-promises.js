@@ -22,9 +22,8 @@ const submitBtn = document.querySelector('button')
       const timerForButton = step.value*amount.value;
       setTimeout(() => setTimeout(() => {
         submitBtn.disabled = false;
-      }, timer))
+      }, timerForButton))
       for (let i = 0; i < amount.value; i++) {
-        console.log(i)
         position = i + 1;
         delays = Number(delay.value) + step.value * i;
         
