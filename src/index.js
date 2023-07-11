@@ -11,6 +11,7 @@ import getArgs from "./js/get-args.js"
 const selectEl = document.querySelector('.breed-select');
 const errorText = document.querySelector('error')
 const catInfoEl = document.querySelector('.cat-info')
+const test = "1"
 let eventError = false;
 
 
